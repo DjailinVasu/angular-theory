@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, OnChanges } from '@angular/core';
 
 export interface Post {
   title: string
@@ -9,9 +9,10 @@ export interface Post {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Default
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Angular components';
 
   posts: Post[] = [
@@ -26,6 +27,18 @@ export class AppComponent {
       id: 2
     }
   ]
+
+  ngOnInit():void {
+    console.log('App OnInit')
+      setTimeout(() => {
+        console.log('TimeOut')
+        this.posts[0] = {
+            title: 'change',
+            text: 'changed This',
+            id: 4
+        }
+      }, 3000)
+  }
 
   upgatePosts(post: Post) {
     this.posts.unshift(post);
