@@ -1,5 +1,8 @@
 <div class="card mb-2">
   <div class="card-body">
+    <button type="button" class="close" (click)="removePost()">
+      <span aria-hidden="true">&times;</span>
+    </button>
     <h5 class="card-title"> {{post.title}} </h5>
     <p class="card-text">
         {{post.text}}
