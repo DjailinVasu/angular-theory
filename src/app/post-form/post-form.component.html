@@ -1,16 +1,27 @@
 <div class="form">
-  <form>
-      <div class="form-group">
-          <label for="post-title">Заголовок поста:</label>
-          <input type="text" class="form-control" placeholder="Title..." id="post-title">
-      </div>
+  <!-- <form> -->
+    <div class="form-group">
+      <label for="post-title">Заголовок поста:</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Title..."
+        id="post-title"
+        [(ngModel)]="title"
+      />
+    </div>
 
-      <div class="form-group">
-        <label for="post-text">Текст поста:</label>
-        <input type="text" class="form-control" placeholder="Tetx..." id="post-text">
-      </div>
+    <div class="form-group">
+      <label for="post-text">Текст поста:</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Tetx..."
+        id="post-text"
+        [(ngModel)]="text"
+      />
+    </div>
 
-      <button class="btn btn-primary">Добавить</button>
-  </form>
+    <button (click)="addPost()" class="btn btn-primary">Добавить</button>
+  <!-- </form> -->
 </div>
-

@@ -26,4 +26,8 @@ export class AppComponent {
       id: 2
     }
   ]
+
+  upgatePosts(post: Post) {
+    this.posts.unshift(post);
+  }
 }
