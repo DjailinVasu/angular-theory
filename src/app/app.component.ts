@@ -1,5 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, OnChanges } from '@angular/core';
 
+import { Observable } from 'rxjs';
+
 export interface Post {
   title: string
   text: string
@@ -18,6 +20,18 @@ export class AppComponent implements OnInit {
 
   search=''
   searchType=''
+
+  p: Promise<string> = new Promise<string> ( resolve => {
+    setTimeout(() => {
+      resolve('Мы ждали это!')
+    }, 4000)
+  })
+
+  date: Observable<Date> = new Observable( obs => {
+      setInterval( () => {
+          obs.next(new Date)
+      }, 1000)
+  })
 
   posts: Post[] = [
     {
@@ -80,4 +94,8 @@ export class AppComponent implements OnInit {
      return new Date(start.getTime()
      + Math.random() * (end.getTime() - start.getTime()));
   }
+
+
+
+
 }

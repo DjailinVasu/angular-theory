@@ -1,9 +1,17 @@
 <div class="container pt-5">
-  <h1 class="text-center">{{ title }}</h1>
+  <h1 class="text-center mb-5">{{ title }}</h1>
+
+  <h2>Асинхронные пайпы!!!</h2>
+
+  <p>Нам надо немного подождать эту строку... {{ p | async}}</p>
+    <p>А это же прям вообще готовый таймер: {{ date | async | date: 'MMM dd, yyy, HH:mm:ss'}} </p>
+
+  <hr class="mb-5 mt-5" />
 
   <h2>Свой пайп</h2>
   <p>Передаем 10 и параметр 2, получаем: {{ 10 | mult: 2 }}</p>
-  <hr />
+
+  <hr class="mb-5 mt-5" />
   <app-post-form (onAdd)="upgatePosts($event)"></app-post-form>
   <hr class="mb-5 mt-5" />
 
