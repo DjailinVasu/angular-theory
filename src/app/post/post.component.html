@@ -1,9 +1,12 @@
 <div appStyle="blue" backgroundColor="pink" borderRadius="15px" class="card mb-2">
+  <div class="card-header">
+     <span class="text-monospace lead"> {{ post.date | date: 'MMM dd, yyy, HH:mm'}} </span>
+  </div>
   <div class="card-body">
     <button type="button" class="close" (click)="removePost()">
       <span aria-hidden="true">&times;</span>
     </button>
-    <h5 class="card-title"> {{post.title}} </h5>
+    <h5 class="card-title"> {{post.title | uppercase}} </h5>
     <p class="card-text">
         {{post.text}}
     </p>
