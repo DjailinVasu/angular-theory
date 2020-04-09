@@ -1,5 +1,9 @@
 <div class="container pt-5">
   <h1 class="text-center">{{ title }}</h1>
+
+  <h2>Свой пайп</h2>
+    <p> Передаем 10 и параметр 2, получаем: {{ 10 | mult:2 }} </p>
+  <hr />
   <app-post-form (onAdd)="upgatePosts($event)"></app-post-form>
   <hr />
 
