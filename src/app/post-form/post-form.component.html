@@ -1,4 +1,4 @@
-<div class="form">
+<div *appIfnot="formIsHide" class="form">
   <!-- <form> -->
     <div class="form-group">
       <label for="post-title">Заголовок поста:</label>
@@ -25,6 +25,13 @@
 
     <button (click)="addPost()" class="btn btn-primary mr-2">Добавить</button>
 
-    <button (click)="focusTitle()" class="btn btn-info">Focus Title</button>
+    <button (click)="focusTitle()" class="btn btn-info mr-2">Focus Title</button>
+
+
   <!-- </form> -->
+</div>
+<div class="mt-2">
+  <button (click)="onToggleForm()" class="btn btn-danger">
+    {{formIsHide?  'Показать форму' : 'Скрыть форму' }}
+  </button>
 </div>

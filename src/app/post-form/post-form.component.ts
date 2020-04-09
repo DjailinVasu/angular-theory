@@ -16,6 +16,8 @@ export class PostFormComponent implements OnInit {
   title = ''
   text = ''
 
+  formIsHide = false;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -35,5 +37,9 @@ export class PostFormComponent implements OnInit {
 
   focusTitle() {
       this.inputRef.nativeElement.focus()
+  }
+
+  onToggleForm() {
+    this.formIsHide = !this.formIsHide;
   }
 }
