@@ -13,7 +13,7 @@ export interface Post {
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class AppComponent implements OnInit {
-  title = 'Angular components';
+  title = 'Angular Theory';
 
   posts: Post[] = [
     {
