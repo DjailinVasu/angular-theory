@@ -2,17 +2,26 @@
   <h1 class="text-center">{{ title }}</h1>
 
   <h2>Свой пайп</h2>
-    <p> Передаем 10 и параметр 2, получаем: {{ 10 | mult:2 }} </p>
+  <p>Передаем 10 и параметр 2, получаем: {{ 10 | mult: 2 }}</p>
   <hr />
   <app-post-form (onAdd)="upgatePosts($event)"></app-post-form>
-  <hr />
+  <hr class="mb-5 mt-5" />
 
-  <app-post *ngFor="let post of posts" [post]="post" (onRemove)="RemovePost($event)">
-    <div #info>
-      <small *ngIf="post.text.length > 10; else short">Пост длинный</small>
-      <ng-template #short>
-        <small>Пост короткий</small>
-      </ng-template>
-    </div>
-  </app-post>
+  <section>
+
+    <app-post-search (onSearch)="searchPost($event)"></app-post-search>
+
+    <app-post
+      *ngFor="let post of posts | filter:search"
+      [post]="post"
+      (onRemove)="RemovePost($event)"
+    >
+      <div #info>
+        <small *ngIf="post.text.length > 10; else short">Пост длинный</small>
+        <ng-template #short>
+          <small>Пост короткий</small>
+        </ng-template>
+      </div>
+    </app-post>
+  </section>
 </div>

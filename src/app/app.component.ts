@@ -16,6 +16,8 @@ export interface Post {
 export class AppComponent implements OnInit {
   title = 'Angular Theory';
 
+  search=''
+
   posts: Post[] = [
     {
       title: 'Я пробую изучать компоненты Angular',
@@ -28,7 +30,19 @@ export class AppComponent implements OnInit {
       text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis illum accusamus consectetur enim nobis neque!',
       id: 2,
       date: this.randomDate(new Date(2012, 0, 1), new Date())
-    }
+    },
+    {
+      title: 'Я изучаю теорию, теперь это директивы',
+      text: 'Я уже знаю как писать свои собственный директивы. Директивы это весело, но пока не совсем понятно что я буду с ними делать на практике',
+      id: 3,
+      date: this.randomDate(new Date(2012, 0, 1), new Date())
+    },
+    {
+      title: 'Я изучаю теорию, теперь это пайпы',
+      text: 'Изучать пайпы весело. Я сейчас научусь.. Фильтровать списки?',
+      id: 4,
+      date: this.randomDate(new Date(2012, 0, 1), new Date())
+    },
   ]
 
   ngOnInit():void {
@@ -47,6 +61,11 @@ export class AppComponent implements OnInit {
   upgatePosts(post: Post) {
     post.id = this.posts.length + 1;
     this.posts.unshift(post);
+  }
+
+  searchPost(search: string) {
+    this.search = search;
+    console.log('this.search', this.search)
   }
 
   RemovePost(id:number) {

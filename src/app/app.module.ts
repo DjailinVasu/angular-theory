@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { StyleDirective } from './directives/style.directive';
 import { IfnotDirective } from './directives/ifnot.directive'
 import { MultByPipe } from './pipes/mult-by.pipe';
+import { PostSearchComponent } from './post-search/post-search.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { MultByPipe } from './pipes/mult-by.pipe';
     PostComponent,
     StyleDirective,
     IfnotDirective,
-    MultByPipe
+    MultByPipe,
+    PostSearchComponent,
+    FilterPipe
   ],
   imports: [
   BrowserModule,
