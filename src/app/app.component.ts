@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   title = 'Angular Theory';
 
   search=''
+  searchType=''
 
   posts: Post[] = [
     {
@@ -65,7 +66,10 @@ export class AppComponent implements OnInit {
 
   searchPost(search: string) {
     this.search = search;
-    console.log('this.search', this.search)
+  }
+
+  changeSearchPostType(type: string) {
+      this.searchType = type;
   }
 
   RemovePost(id:number) {

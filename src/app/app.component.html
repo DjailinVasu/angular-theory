@@ -9,10 +9,13 @@
 
   <section>
 
-    <app-post-search (onSearch)="searchPost($event)"></app-post-search>
+    <app-post-search
+    (onSearch)="searchPost($event)"
+    (OnChangeSearchType)="changeSearchPostType($event)"
+    ></app-post-search>
 
     <app-post
-      *ngFor="let post of posts | filter:search"
+      *ngFor="let post of posts | filter:search:searchType"
       [post]="post"
       (onRemove)="RemovePost($event)"
     >

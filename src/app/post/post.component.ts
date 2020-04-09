@@ -22,23 +22,23 @@ export class PostComponent implements OnInit, OnChanges, DoCheck, AfterContentIn
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-      console.log('ngOnChanges')
+      // console.log('ngOnChanges')
   }
 
   ngOnInit(): void {
-    console.log('ngOnInit')
-    console.log( this.infoRef.nativeElement ) //получили доступ к контенту
+    // console.log('ngOnInit')
+    // console.log( this.infoRef.nativeElement ) //получили доступ к контенту
   }
 
   ngDoCheck(): void {
-    console.log('ngDoCheck')
+    // console.log('ngDoCheck')
   }
   ngAfterContentInit(): void {
-    console.log('ngAfterContentInit')
+    // console.log('ngAfterContentInit')
   }
 
   ngOnDestroy(): void {
-    console.log('ngOnDestroy')
+    // console.log('ngOnDestroy')
   }
 
 }

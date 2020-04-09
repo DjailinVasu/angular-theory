@@ -10,9 +10,14 @@
 
     />
 
-    <button (click)="onStartSearch()" class="btn btn-outline-success my-2 my-sm-0" type="submit">
+    <button (click)="onStartSearch()" class="btn btn-outline-success my-2 my-sm-0"  type="submit">
       Search
     </button>
+
+    <div class="btn-group ml-2">
+      <button [ngClass]="{active: searchFor === 'title'}" class="btn btn-outline-info my-2 my-sm-0" (click)="changeSearhType('title')">По названию</button>
+      <button [ngClass]="{active: searchFor === 'text'}" class="btn btn-outline-info my-2 my-sm-0" (click)="changeSearhType('text')">По тексту</button>
+    </div>
 
   </div>
 </header>

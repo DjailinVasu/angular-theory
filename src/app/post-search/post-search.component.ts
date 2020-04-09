@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-post-search',
@@ -8,8 +8,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class PostSearchComponent implements OnInit {
 
   @Output() onSearch: EventEmitter<string> = new EventEmitter<string>()
+  @Output() OnChangeSearchType: EventEmitter<string> = new EventEmitter<string>()
 
   search = ''
+  searchFor = 'title'
 
   constructor() { }
 
@@ -17,7 +19,13 @@ export class PostSearchComponent implements OnInit {
   }
 
   onStartSearch() {
-    this.onSearch.emit(this.search)
+    this.onSearch.emit(this.search);
+    this.OnChangeSearchType.emit(this.searchFor);
+  }
+
+  changeSearhType(type: string) {
+    this.searchFor = type;
+    this.OnChangeSearchType.emit(this.searchFor);
   }
 
 }
