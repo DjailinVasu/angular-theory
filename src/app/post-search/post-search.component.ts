@@ -1,31 +1,57 @@
-import { Component, OnInit, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Provider, forwardRef, OnChanges } from '@angular/core';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+
+const VALUE_ACCESSOR: Provider = {
+  provide: NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() => PostSearchComponent),
+  multi: true
+}
 
 @Component({
   selector: 'app-post-search',
   templateUrl: './post-search.component.html',
-  styleUrls: ['./post-search.component.scss']
+  styleUrls: ['./post-search.component.scss'],
+  providers: [VALUE_ACCESSOR]
 })
-export class PostSearchComponent implements OnInit {
+
+export class PostSearchComponent implements ControlValueAccessor{
 
   @Output() onSearch: EventEmitter<string> = new EventEmitter<string>()
   @Output() OnChangeSearchType: EventEmitter<string> = new EventEmitter<string>()
 
-  search = ''
-  searchFor = 'title'
-
-  constructor() { }
-
-  ngOnInit(): void {
+  state : {[key: string]: string} = {
+    searchFor: 'title',
+    search: ''
   }
+
+  private OnChange = (value: any) => {}
 
   onStartSearch() {
-    this.onSearch.emit(this.search);
-    this.OnChangeSearchType.emit(this.searchFor);
+    console.log(this.state)
+    this.OnChange(this.state)
   }
 
-  changeSearhType(type: string) {
-    this.searchFor = type;
-    this.OnChangeSearchType.emit(this.searchFor);
+
+  registerOnChange(fn:any):void {
+      this.OnChange = fn
+  }
+
+
+  setState(state: {[key: string]: string}) {
+    this.state = {...this.state, ...state};
+    this.OnChange(this.state)
+  }
+
+  registerOnTouched() {
+
+  }
+
+  setDisabledState() {
+
+  }
+
+  writeValue() {
+
   }
 
 }

@@ -18,8 +18,10 @@ export interface Post {
 export class AppComponent implements OnInit {
   title = 'Angular Theory';
 
-  search=''
-  searchType=''
+  searchObject:{[key: string]: string} = {
+    searchFor: 'title',
+    search: ''
+  };
 
   p: Promise<string> = new Promise<string> ( resolve => {
     setTimeout(() => {
@@ -78,14 +80,6 @@ export class AppComponent implements OnInit {
     this.posts.unshift(post);
   }
 
-  searchPost(search: string) {
-    this.search = search;
-  }
-
-  changeSearchPostType(type: string) {
-      this.searchType = type;
-  }
-
   RemovePost(id:number) {
       this.posts = this.posts.filter(p => p.id !== id);
   }
@@ -94,8 +88,5 @@ export class AppComponent implements OnInit {
      return new Date(start.getTime()
      + Math.random() * (end.getTime() - start.getTime()));
   }
-
-
-
 
 }

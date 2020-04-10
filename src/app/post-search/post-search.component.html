@@ -6,7 +6,7 @@
       type="search"
       placeholder="Search"
 
-      [(ngModel)]="search"
+      [(ngModel)]="state.search"
 
     />
 
@@ -15,8 +15,9 @@
     </button>
 
     <div class="btn-group ml-2">
-      <button [ngClass]="{active: searchFor === 'title'}" class="btn btn-outline-info my-2 my-sm-0" (click)="changeSearhType('title')">По названию</button>
-      <button [ngClass]="{active: searchFor === 'text'}" class="btn btn-outline-info my-2 my-sm-0" (click)="changeSearhType('text')">По тексту</button>
+      <button [class.active]="state.searchFor === 'title'" class="btn btn-outline-info my-2 my-sm-0" (click)="setState({searchFor: 'title'})">По названию</button>
+
+      <button [class.active]="state.searchFor === 'text'"  class="btn btn-outline-info my-2 my-sm-0" (click)="setState({searchFor: 'text'})">По тексту</button>
     </div>
 
   </div>

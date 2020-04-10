@@ -18,12 +18,12 @@
   <section>
 
     <app-post-search
-    (onSearch)="searchPost($event)"
-    (OnChangeSearchType)="changeSearchPostType($event)"
-    ></app-post-search>
+      [(ngModel)]="searchObject"
+    >
+    </app-post-search>
 
     <app-post
-      *ngFor="let post of posts | filter:search:searchType"
+      *ngFor="let post of posts | filter:searchObject.search:searchObject.searchFor"
       [post]="post"
       (onRemove)="RemovePost($event)"
     >
